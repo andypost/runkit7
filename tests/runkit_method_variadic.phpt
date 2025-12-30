@@ -47,7 +47,7 @@ class foo {
 }
 
 function main() {
-    ini_set('error_reporting', E_ALL | E_STRICT);
+    ini_set('error_reporting', E_ALL);
     global $impl;
     $impl = new FooImpl();
     printf("Before mock: %s\n", var_export(foo::bar('methodName', 0), true));
