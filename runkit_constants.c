@@ -408,7 +408,11 @@ static int php_runkit_global_constant_add(zend_string *constname, zval *value)
 
 	c.name = constname;
 	ZEND_CONSTANT_SET_FLAGS(&c, CONST_CS, PHP_USER_CONSTANT);
+#if PHP_VERSION_ID >= 80500
+	return zend_register_constant(&c) ? SUCCESS : FAILURE;
+#else
 	return zend_register_constant(&c);
+#endif
 }
 /* }}} */
 
