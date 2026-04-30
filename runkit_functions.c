@@ -995,7 +995,7 @@ static void php_runkit_free_reflection_function(zend_function *fptr)
    Copied from ext/reflection/php_reflection.c */
 static inline reflection_object *reflection_object_from_obj(zend_object *obj)
 {
-	return (reflection_object *)((char *)(obj)-XtOffsetOf(reflection_object, zo));
+	return (reflection_object *)((char *)(obj)-offsetof(reflection_object, zo));
 }
 /* }}} */
 
